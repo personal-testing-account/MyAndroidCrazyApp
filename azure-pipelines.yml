@@ -27,3 +27,4 @@ steps:
     apksignerKeystoreAlias: '$(key.alias)'
     apksignerKeyPassword: '$(key.pass)'
     apksignerArguments: --out $(Build.SourcesDirectory)/app/build/outputs/apk/release/my-crazy-app.release.apk
+    zipalign: true
