@@ -18,13 +18,12 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'assembleRelease'
-- task: AndroidSigning@3
+- task: AndroidSigning@2
   inputs:
     apkFiles: '**/*.apk'
-    apksign: true
-    apksignerKeystoreFile: 'crazy-app.jks'
-    apksignerKeystorePassword: '$(keystore.keypass)'
-    apksignerKeystoreAlias: '$(key.alias)'
-    apksignerKeyPassword: '$(key.pass)'
-    apksignerArguments: --out $(Build.SourcesDirectory)/app/build/outputs/apk/release/my-crazy-app.release.apk
+    jarsign: true
+    jarsignerKeystoreFile: 'crazy-app.jks'
+    jarsignerKeystorePassword: '$(keystore.keypass)'
+    jarsignerKeystoreAlias: '$(key.alias)'
+    jarsignerKeyPassword: '$(key.pass)'
     zipalign: true
