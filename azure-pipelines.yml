@@ -5,7 +5,8 @@
 
 trigger:
 - master
-
+variables:
+  - group: key-jks
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -30,9 +31,9 @@ steps:
     apkFiles: '**/*.apk' 
     apksign: true
     apksignerKeystoreFile: 'crazy-app.jks'
-    apksignerKeystorePassword: 'crazy-app'
-    apksignerKeystoreAlias: 'crazy-deploy'
-    apksignerKeyPassword: 'crazy-deploy'
+    apksignerKeystorePassword: $(keystore.keypass)
+    apksignerKeystoreAlias: $(key.alias)
+    apksignerKeyPassword: $(key.pass)
     apksignerArguments: --out $(Build.SourcesDirectory)/app/build/outputs/apk/release/my-crazy-app.release.apk
     zipalign: true
 
