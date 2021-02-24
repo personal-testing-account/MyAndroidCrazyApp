@@ -51,4 +51,4 @@ steps:
 - task: DownloadPipelineArtifact@2
   inputs:
     artifact: 'apks'
-    path: $(Build.SourcesDirectory)/app/build/outputs/apk/release/my-crazy-app.release.apk
+    path: $(Build.SourcesDirectory)/bin/
